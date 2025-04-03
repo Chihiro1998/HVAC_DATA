@@ -95,15 +95,121 @@ Sankey:
 Network:
 ![image](https://github.com/user-attachments/assets/1261198c-3a35-4959-a3b6-230e2444b23c)
 
+## 3. Processing of HVAC folder
+### (1). Data Integration and Cleaning
+* Goal: 
+
+  Process and merge HVAC-related data into a cleaned dataset HVAC_cleaned_data.csv.
+
+* Approach:
+  
+  Load metadata from building and weather information CSV files.
+  
+  Merge multiple building and weather data files, handling duplicates and standardizing timestamps.
+  
+  Convert TIMESTAMP column to datetime format.
+  
+  Clean data by preprocessing special values, handling missing data (interpolation for numeric columns, specific values for text), and detecting outliers using the Z-score method.
+  
+  Save the cleaned dataset for further analysis.
+
+### (2)Component-Level Analysis
+* Goal: 
+ Conduct an in-depth component-level analysis of the HVAC system.
+
+* Approach:
+
+  RTU Components: Calculate energy distribution and visualize results using pie charts and bar plots.
+  
+  Compressors: Compare runtime and simultaneous operation using a stacked area plot.
+  
+  VAV Terminals: Evaluate airflow efficiency and temperature control.
+
+* Results:
+
+  Performance metrics and interactive visualizations for each component.
+
+* Generated Images:
+
+  ![img.png](img.png)
+  
+  ![img_1.png](img_1.png)
+  
+  ![img_3.png](img_3.png)  ![img_4.png](img_4.png)
+
+  ![img_2.png](img_2.png)
+
+### (3)System-Level Energy Efficiency Analysis
+* Goal: 
+
+  Assess system-level HVAC energy efficiency.
+
+* Approach:
+
+  Calculate key metrics such as Energy Use Intensity (EUI), Coefficient of Performance (COP), and weather correlations.
+  
+  Compare EUI values against industry benchmarks.
+  
+  Analyze COP statistics.
+  
+  Study weather-energy correlations through temperature-energy and solar radiation-energy scatter plots.
+
+* Results:
+
+  Energy efficiency insights with corresponding visualizations.
+
+* Generated Images:
+
+  ![img_5.png](img_5.png)
+  ![img_6.png](img_6.png)
+
+### (4)Machine Learning-Based HVAC Energy Prediction
+* Goal: 
+
+  Implement an ML-based HVAC energy prediction pipeline.
+
+* Approach:
+
+  Perform feature engineering to create relevant features.
+  
+  Train baseline models including linear regression, random forest, and XGBoost.
+  
+  Evaluate model performance.
+  
+  Identify key features influencing HVAC energy consumption using SHAP values.
+
+* Results:
+
+  Model performance metrics.
+  
+  Feature importance analysis.
+
+  * Generated Images:
+  ![img_7.png](img_7.png)
+  ![img_8.png](img_8.png)
+  ![img_9.png](img_9.png)
 ---
 
-## 3. Todo List
+## 4. Todo List
+| Task | Description |
+|------|-------------|
+| **Basic Statistics** | Compute average AirFlow, DschAirTemp, and DmprPos |
+| | Analyze Room_Temperature_Diff and VAV_Temperature_Diff |
+| | Identify outliers and anomalies using boxplots and 3σ rule |
+| **Energy Efficiency** | Calculate Energy Use Intensity (EUI) |
+| | Compare EUI across units |
+| | Evaluate airflow efficiency and temperature control accuracy |
+| **Pattern Recognition** | Analyze occupancy-based energy differences |
+| | Detect simultaneous heating and cooling issues |
+| | Assess damper position and airflow relationships |
+| **Correlation Analysis** | Compute correlation matrix |
+| | Analyze key factors affecting energy consumption |
+| **Clustering Analysis** | Perform clustering on EUI, airflow, and temperature control |
+| | Identify abnormal clusters |
+| **Time Series Analysis** | Detect energy patterns by hour, day, and season |
+| | Identify unnecessary energy usage during off-hours |
+| **Issue Detection** | Detect leakage, refrigerant, and dirty coil issues |
+| | Estimate energy losses and savings potential |
+| **Report Preparation** | Create dashboards and heatmaps |
+| | Write recommendations and validate findings |
 
-| To-Do Task                                                        | Why It Matters                                                                 |
-|-------------------------------------------------------------------|------------------------------------------------------------------------------------------|
-| Perform spatial visualization based on RTU-VAV connection table   | Helps simulate Eclipse’s interface and visually interpret the HVAC system structure     |
-| Compare first version vs enhanced version of connection analysis  | Justifies why the enhanced metric approach is more accurate and informative             |
-| Develop zone-level energy models using HVAC + weather data        | Enables external driver analysis and supports accurate energy consumption prediction     |
-| Conduct fault or anomaly detection based on VAV-RTU interactions  | Identifies unusual behavior (e.g., under-performing zones or unresponsive systems)       |
-| Integrate findings into a complete diagnostics and control report | Prepares final documentation that mimics real-world HVAC analytics and decision support  |
-| Build final dashboard or presentation visualizations              | Delivers a user-facing summary of insights to stakeholders or technical reviewers        |
