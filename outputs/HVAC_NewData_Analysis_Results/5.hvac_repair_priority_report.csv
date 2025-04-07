@@ -1,0 +1,4 @@
+,units,severity,repair_priority,affected_units_count
+Air Leakage,['HH' 'I'],High,1,2
+Refrigerant Issue,['A' 'B' 'C' 'D' 'E' 'F' 'G' 'H' 'I' 'J'],Medium,2,10
+Dirty Coils,['K' 'KK' 'LL' 'O' 'S' 'TT'],Low,3,6
